@@ -1,0 +1,44 @@
+
+/* General */
+"BudDrop" = "BudDrop";
+
+/* Login/Register */
+"Username" = "Usuario";
+"Password" = "Contraseña";
+"Login" = "Iniciar Sesión";
+"Register" = "Registrarse";
+"Account Type" = "Tipo de Cuenta";
+"Customer" = "Cliente";
+"Business" = "Negocio";
+"Business ID" = "ID de Negocio";
+"Business Name" = "Nombre del Negocio";
+"Already have an account? Login" = "¿Ya tienes cuenta? Inicia Sesión";
+"Don't have an account? Register" = "¿No tienes cuenta? Regístrate";
+"Logout" = "Cerrar Sesión";
+
+/* Customer View */
+"Place Order" = "Hacer Pedido";
+"Product Name" = "Nombre del Producto";
+"Price ($)" = "Precio ($)";
+"My Orders" = "Mis Pedidos";
+"No orders yet" = "Aún no hay pedidos";
+
+/* Business View */
+"Business Dashboard" = "Panel de Negocio";
+"Update Status" = "Actualizar Estado";
+"Update Order Status" = "Actualizar Estado del Pedido";
+"Select a new status for this order" = "Selecciona un nuevo estado para este pedido";
+"Orders will appear here when customers place them" = "Los pedidos aparecerán aquí cuando los clientes los realicen";
+"All" = "Todos";
+
+/* Order Status */
+"Pending" = "Pendiente";
+"Confirmed" = "Confirmado";
+"In Delivery" = "En Entrega";
+"Delivered" = "Entregado";
+
+/* Payment Status */
+"Payment Pending" = "Pago Pendiente";
+"Payment Completed" = "Pago Completado";
+"Payment Failed" = "Pago Fallido";
+"Payment canceled" = "Pago Cancelado";

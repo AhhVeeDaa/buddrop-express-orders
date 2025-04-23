@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
 
-## Project info
+# BudDrop - Cannabis Delivery Platform
 
-**URL**: https://lovable.dev/projects/68d4ad90-0170-4bd6-ab9b-3aa31454eab4
+A full-stack application for cannabis delivery, with SwiftUI iOS client and Flask backend.
 
-## How can I edit this code?
+## Project Structure
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/68d4ad90-0170-4bd6-ab9b-3aa31454eab4) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+.
+├── server/             # Flask backend
+│   ├── app/            # Application package
+│   │   ├── api/        # API endpoints
+│   │   ├── models.py   # Database models
+│   │   └── __init__.py # Application factory
+│   ├── config.py       # Configuration
+│   ├── run.py          # Application entrypoint
+│   ├── requirements.txt # Python dependencies
+│   └── Procfile        # Heroku deployment config
+└── ios/                # iOS SwiftUI app
+    └── BudDrop/        # SwiftUI project
+        ├── App/        # App entrypoint
+        ├── Models/     # Data models
+        ├── Views/      # SwiftUI views
+        ├── Networking/ # API client and networking
+        ├── Services/   # Business logic and state management
+        └── Resources/  # Assets and localization
 ```
 
-**Edit a file directly in GitHub**
+## Backend Installation
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd buddrop/server
 
-**Use GitHub Codespaces**
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Install dependencies
+pip install -r requirements.txt
 
-## What technologies are used for this project?
+# Create .env file
+cp .env.sample .env
+# Edit .env with your settings
 
-This project is built with:
+# Run the server
+python run.py
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## iOS App Setup
 
-## How can I deploy this project?
+1. Open the project in Xcode:
+```bash
+cd ios/BudDrop
+open BudDrop.xcodeproj
+```
 
-Simply open [Lovable](https://lovable.dev/projects/68d4ad90-0170-4bd6-ab9b-3aa31454eab4) and click on Share -> Publish.
+2. Install dependencies with Swift Package Manager:
+- Stripe iOS SDK
+- Starscream (WebSocket client)
 
-## Can I connect a custom domain to my Lovable project?
+3. Configure backend URL in APIClient.swift:
+- For local development: `http://localhost:5000/api`
+- For production: `https://your-app.herokuapp.com/api`
 
-Yes, you can!
+4. Build and run on simulator or device
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Heroku Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Create a Heroku app:
+```bash
+heroku create buddrop-app
+```
+
+2. Add PostgreSQL add-on:
+```bash
+heroku addons:create heroku-postgresql:hobby-dev
+```
+
+3. Configure environment variables:
+```bash
+heroku config:set SECRET_KEY=your_secret_key
+heroku config:set JWT_SECRET_KEY=your_jwt_secret_key
+heroku config:set APP_SETTINGS=config.ProductionConfig
+heroku config:set STRIPE_SECRET_KEY=your_stripe_secret_key
+heroku config:set STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+heroku config:set STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+```
+
+4. Deploy:
+```bash
+git subtree push --prefix server heroku main
+```
+
+## Security Considerations
+
+- JWT secrets should be strong, random strings
+- Stripe keys must be kept secure
+- User passwords are hashed using Werkzeug's secure functions
+- Frontend stores JWT token in secure storage
+- API endpoints are protected with role-based authorization
+
+## Future Enhancements
+
+- Driver role integration
+- Geolocation tracking for orders
+- Push notifications
+- User profiles and preferences
+- Order history and analytics
+- Loyalty program
+- Tipping feature
+
+## API Documentation
+
+The API documentation is available in Postman. Import the collection from:
+[BudDrop API Collection](link-to-your-postman-collection)

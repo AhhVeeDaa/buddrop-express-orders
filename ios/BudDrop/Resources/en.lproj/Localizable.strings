@@ -1,0 +1,44 @@
+
+/* General */
+"BudDrop" = "BudDrop";
+
+/* Login/Register */
+"Username" = "Username";
+"Password" = "Password";
+"Login" = "Login";
+"Register" = "Register";
+"Account Type" = "Account Type";
+"Customer" = "Customer";
+"Business" = "Business";
+"Business ID" = "Business ID";
+"Business Name" = "Business Name";
+"Already have an account? Login" = "Already have an account? Login";
+"Don't have an account? Register" = "Don't have an account? Register";
+"Logout" = "Logout";
+
+/* Customer View */
+"Place Order" = "Place Order";
+"Product Name" = "Product Name";
+"Price ($)" = "Price ($)";
+"My Orders" = "My Orders";
+"No orders yet" = "No orders yet";
+
+/* Business View */
+"Business Dashboard" = "Business Dashboard";
+"Update Status" = "Update Status";
+"Update Order Status" = "Update Order Status";
+"Select a new status for this order" = "Select a new status for this order";
+"Orders will appear here when customers place them" = "Orders will appear here when customers place them";
+"All" = "All";
+
+/* Order Status */
+"Pending" = "Pending";
+"Confirmed" = "Confirmed";
+"In Delivery" = "In Delivery";
+"Delivered" = "Delivered";
+
+/* Payment Status */
+"Payment Pending" = "Payment Pending";
+"Payment Completed" = "Payment Completed";
+"Payment Failed" = "Payment Failed";
+"Payment canceled" = "Payment canceled";
